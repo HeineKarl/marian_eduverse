@@ -13,7 +13,9 @@
               See the light upon us to squeeze the opportunity as you begin a
               new journey.
             </p>
-            <v-btn class="mt-8"> Learn More</v-btn>
+            <v-btn class="mt-8" @click="$router.push('/about')">
+              Learn More</v-btn
+            >
           </div>
         </v-col>
       </v-row>
@@ -40,23 +42,51 @@
           cols="12"
           sm="6"
           md="4"
-          v-for="edu in state.edu.edu"
-          :key="edu.header"
+          v-for="(video, index) in state.videos.videos"
+          :key="index"
         >
           <v-card class="pa-3 mt-3">
-            <v-img
-              src="https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg"
-            ></v-img>
+            <div class="video-container">
+              <iframe
+                :src="video.link"
+                allow="autoplay"
+                allowfullscreen
+              ></iframe>
+            </div>
 
             <div class="ma-0 pa-0 mt-3 d-flex align-center">
               <v-card-title class="ma-0 pa-0" style="font-size: 1rem">{{
-                edu.header
+                video.title
               }}</v-card-title>
               <v-spacer></v-spacer>
-              <v-icon>mdi-information</v-icon>
+              <v-btn @click="openDialog(index)" icon elevation="0">
+                <v-icon>mdi-information</v-icon>
+              </v-btn>
             </div>
           </v-card>
         </v-col>
+        <div class="text-center">
+          <v-dialog v-model="state.videos.dialog" width="800">
+            <v-card>
+              <v-card-title class="text-h5 ml-2 grey">
+                {{ state.videos.videos[state.videos.vidID].title }}
+              </v-card-title>
+
+              <v-card-text>
+                {{ state.videos.videos[state.videos.vidID].description }}
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" text @click="openDialog(-1)">
+                  Close
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+        </div>
       </v-row>
     </v-container>
   </div>
@@ -65,22 +95,46 @@
 <script>
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
+import VideoBackground from "vue-responsive-video-background-player";
 
 // Components
 
 export default defineComponent({
   name: "HomeView",
 
-  components: {},
+  components: { VideoBackground },
   setup() {
-    const { state } = useStore();
+    const { state, commit } = useStore();
 
-    return { state };
+    let vidID;
+    function openDialog(index) {
+      // console.log(index);
+
+      if (index === -1) {
+        commit("videos/toggleDialog");
+        return;
+      }
+      // console.log();
+      commit("videos/toggleDialog");
+
+      vidID = index;
+
+      commit("videos/getVidID", vidID);
+      // console.log(vidID);
+    }
+
+    console.log(state.videos.dialog);
+
+    return { state, openDialog };
   },
 });
 </script>
 
 <style>
+.video-container {
+  width: 100%;
+  height: 14rem;
+}
 /* .home {
   overflow: hidden;
 } */

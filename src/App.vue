@@ -21,6 +21,12 @@ export default {
 </script>
 
 <style>
+iframe {
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  border: 2px solid;
+}
 /* body {
   scrollbar-width: 0;
 }

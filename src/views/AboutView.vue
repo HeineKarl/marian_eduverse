@@ -6,9 +6,9 @@
           <v-img mt-5 src="@/assets/img/home.png"></v-img>
         </v-col>
         <v-col cols="12" sm="6">
-          <div class="mt-5">
-            <h1>How it started</h1>
-            <p>
+          <div class="mt-15">
+            <h1 class="mt-15">How it started</h1>
+            <p class="mt-2">
               The website aims to make the students and anyone in the field of
               education know and understand the importance of education in our
               lives.

@@ -1,6 +1,6 @@
 export const links = {
   state: {
-    drawer: true,
+    drawer: false,
     links: [
       { icon: "mdi-home", route: "/", title: "Home" },
       { icon: "mdi-information", route: "/about", title: "About" },

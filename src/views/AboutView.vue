@@ -1,9 +1,9 @@
 <template>
   <div class="mt-15">
     <v-container>
-      <v-row>
+      <v-row class="mt-5">
         <v-col cols="12" sm="6">
-          <v-img mt-5 src="@/assets/img/home.png"></v-img>
+          <v-img mt-5 src="@/assets/img/about.png"></v-img>
         </v-col>
         <v-col cols="12" sm="6">
           <div class="mt-15">

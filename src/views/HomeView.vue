@@ -68,12 +68,30 @@
         <div class="text-center">
           <v-dialog v-model="state.videos.dialog" width="800">
             <v-card>
-              <v-card-title class="text-h5 ml-2 grey">
-                {{ state.videos.videos[state.videos.vidID].title }}
+              <v-card-title class="text-h5 ml-2 mt-5 grey">
+                <b>{{ state.videos.videos[state.videos.vidID].title }}</b>
               </v-card-title>
 
               <v-card-text>
                 {{ state.videos.videos[state.videos.vidID].description }}
+              </v-card-text>
+
+              <v-card-text>
+                <b> Creators:</b><br />
+                <span
+                  v-for="(creator, index) in state.videos.videos[
+                    state.videos.vidID
+                  ].creators"
+                >
+                  {{ creator
+                  }}{{
+                    state.videos.videos[state.videos.vidID].creators.length -
+                      1 ===
+                    index
+                      ? ""
+                      : " | "
+                  }}
+                </span>
               </v-card-text>
 
               <v-divider></v-divider>

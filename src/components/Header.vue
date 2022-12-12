@@ -9,7 +9,7 @@
   >
     <v-list nav dense>
       <v-list-item-group v-for="link in state.links.links" :key="link">
-        <v-list-item class="mt-1" link :to="link.route">
+        <v-list-item @click="toggleDrawer" class="mt-1" link :to="link.route">
           <div class="d-flex align-center">
             <v-icon class="mr-2">{{ link.icon }}</v-icon>
             <v-list-item-title>{{ link.title }}</v-list-item-title>
@@ -23,7 +23,7 @@
 
 
 <script>
-import { defineComponent, watch, ref, watchEffect } from "vue";
+import { defineComponent, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 // Components
@@ -42,10 +42,10 @@ export default defineComponent({
       commit("toggleDrawer");
     }
 
-    watch(route, () => {
-      console.log("WATCH");
-      commit("toggleDrawer");
-    });
+    // watch(route, () => {
+    //   console.log("WATCH");
+    //   commit("toggleDrawer");
+    // });
 
     return {
       state,

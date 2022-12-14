@@ -39,7 +39,7 @@ export const videos = {
         title: "Professionalism",
         description:
           "Professionalism is an everyone's responsibility to engage with other professionals. With this, the video will teach you the basic approach towards professionalism.",
-        link: "https://drive.google.com/file/d/18CORyKLqZ_fvT20OBL-Ky6ZrZWFLdOKy/preview",
+        link: "https://drive.google.com/file/d/1FEd1SytONKBaydz9-MyYYG9ZQKtHK6A1/preview",
         creators: [
           "Prince Roño",
           "Marc Buladas",

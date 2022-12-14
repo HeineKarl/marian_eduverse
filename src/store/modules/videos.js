@@ -36,11 +36,12 @@ export const videos = {
         ],
       },
       {
-        title: "Title3",
-        description: "Desc3",
-        link: "#",
+        title: "Professionalism",
+        description:
+          "Professionalism is an everyone's responsibility to engage with other professionals. With this, the video will teach you the basic approach towards professionalism.",
+        link: "https://drive.google.com/file/d/18CORyKLqZ_fvT20OBL-Ky6ZrZWFLdOKy/preview",
         creators: [
-          "Prince Rono",
+          "Prince Roño",
           "Marc Buladas",
           "Jayvee Navarro",
           "Alberto Ricky",
